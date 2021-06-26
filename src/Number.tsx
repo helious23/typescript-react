@@ -1,12 +1,19 @@
-import React from 'react'
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
-const Container = styled.span``
+const Container = styled.span<{ isBlue: boolean }>`
+  color: ${(props) => (props.isBlue ? "blue" : "black")};
+  &:hover {
+    color: ${(props) => props.theme.blueColor};
+  }
+`;
 
 interface IProps {
-    count: number
+  count: number;
 }
 
-const Number: React.FunctionComponent<IProps> = ({ count }) => <Container>{count}</Container>
+const Number: React.FunctionComponent<IProps> = ({ count }) => (
+  <Container isBlue={count > 10}>{count}</Container>
+);
 
-export default Number
+export default Number;
