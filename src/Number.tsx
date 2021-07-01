@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.span<{ isBlue: boolean }>`
-  color: ${(props) => (props.isBlue ? "blue" : "black")};
-  &:hover {
-    color: ${(props) => props.theme.blueColor};
-  }
+  color: ${(props) => (props.isBlue ? props.theme.blueColor : "black")};
 `;
 
 interface IProps {
